@@ -27,7 +27,7 @@ source ~/.bashrc
 ###################### expect user input from here ##################################
 
 # select protein (1=DLL4, 2=Jagged1, 3=Jagged2)
-protein_folder=3
+protein_folder=2
 
 # set lipids to loop over (1=PC:GM1:GM2, 2=PC:PS:PIP2, 3=PC:PS, 4=PC, 5=PC:PS:GM1)
 lip_first=3
