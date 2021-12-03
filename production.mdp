@@ -1,0 +1,55 @@
+; TIMESTEP IN MARTINI 
+; Most simulations are numerically stable 
+; with dt=40 fs, some (especially rings and polarizable water) require 20-30 fs.
+; Note that time steps of 40 fs and larger may create local heating or 
+; cooling in your system. Although the use of a heat bath will globally 
+; remove this effect, it is advised to check consistency of 
+; your results for somewhat smaller time steps in the range 20-30 fs.
+; Time steps exceeding 40 fs should not be used; time steps smaller
+; than 20 fs are also not required unless specifically stated in the itp file.
+
+; Run control
+integrator               = md           ; default integrator
+dt                       = 0.035        ; 35 fs 
+nsteps                   = 86000000     ; 35 fs * 86,000,000 = 3.0 us
+
+; Output control
+nstlog                   = 10000  ; Output frequency for energies to log file, every 350 ps
+nstenergy                = 10000  ; Output frequency for energies to energy file
+nstxout-compressed       = 10000  ; Output frequency for .xtc file, 10*35 ps = 350 ps
+
+; Neighbour searching
+cutoff-scheme            = Verlet
+nstlist                  = 20          ; good performance for GPUs, default is 10
+ns_type                  = grid
+pbc                      = xyz
+
+; Electrostatics
+coulombtype              = reaction-field
+rcoulomb                 = 1.1              ; default Coulomb cutoff radius is 1 nm
+epsilon_r                = 15	            ; 2.5 (with polarizable water)
+
+; Van der Waals
+vdw_type                 = cutoff           ; default Van der Waals type
+rvdw                     = 1.1              ; default VDW cutoff radius is 1 nm
+
+; Temperature coupling
+tcoupl                   = v-rescale 
+tc-grps                  = Protein LIP SOL
+tau_t                    = 1.0  1.0 1.0
+ref_t                    = 323 323 323
+
+; Pressure coupling
+Pcoupl                   = parrinello-rahman
+Pcoupltype               = semiisotropic
+tau_p                    = 14.0
+compressibility          = 3e-4 3e-4
+ref_p                    = 1.0 1.0
+
+; Velocity generation
+gen_vel                  = no
+
+; Bonds and constraints
+constraints              = none 
+constraint_algorithm     = Lincs
+continuation             = yes       ; Continuing from equilibration
