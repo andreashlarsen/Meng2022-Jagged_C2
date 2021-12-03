@@ -1,8 +1,8 @@
 source ~/.bashrc
-#path=/sansom/s157/bioc1642/Desktop/prj_Notch/2/PCPS_21/CG2AT_2021-09-23_12-51-13/FINAL #J1, pdb 4cbz
-#name=C2_J1
-path=/sansom/s157/bioc1642/Desktop/prj_Notch/3/PCPS_14/CG2AT_2021-10-11_13-01-00/FINAL #J2apo, pdb 5mw7
-name=C2_J2apo
+path=/sansom/s157/bioc1642/Desktop/prj_Notch/2/PCPS_21/CG2AT_2021-09-23_12-51-13/FINAL #J1, pdb 4cbz
+name=C2_J1
+#path=/sansom/s157/bioc1642/Desktop/prj_Notch/3/PCPS_14/CG2AT_2021-10-11_13-01-00/FINAL #J2apo, pdb 5mw7
+#name=C2_J2apo
 pdb=final_cg2at_aligned.pdb
 top=topol_final.top
 
